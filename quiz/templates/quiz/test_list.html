@@ -1,0 +1,25 @@
+{% extends "quiz/base.html" %}
+
+{% block content %}
+<h2 class="my-4">Список тестов</h2>
+<div >
+    <style>
+        .card {
+            margin-top: 10px;
+        }
+    </style>
+    {% for test in tests %}
+    <div class="m-1">
+        <div class="card">
+            
+            <div class="card-body">
+                <h5 class="card-title">
+                    <a href="{% url 'quiz:test_detail' test.id %}">{{ test.title }}</a>
+                </h5>
+                <p class="card-text">Сложность: {{ test.get_difficulty_display }}</p>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+{% endblock %}

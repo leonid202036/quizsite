@@ -1,0 +1,24 @@
+{% extends 'quiz/base.html' %}
+
+{% block content %}
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <h2 class="my-4">Результаты теста</h2>
+
+            <p>
+                Вы ответили на {{ attempt.correct_answers }} вопросов верно и на {{ attempt.incorrect_answers }} вопросов неверно.
+            </p>
+
+            {% if attempt.incorrect_questions.all %}
+                <h3 class="my-3">Вопросы, на которые был неверно дан ответ:</h3>
+                <ul class="list-group">
+                    {% for question in attempt.incorrect_questions.all %}
+                        <li class="list-group-item">{{ question.text }}</li>
+                    {% endfor %}
+                </ul>
+            {% endif %}
+        </div>
+    </div>
+</div>
+{% endblock %}

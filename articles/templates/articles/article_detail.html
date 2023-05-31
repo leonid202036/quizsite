@@ -1,0 +1,41 @@
+{% extends "quiz/base.html" %}
+
+{% block content %}
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-12 col-md-8 col-lg-6">
+        <h2>{{ article.title }}</h2>
+        <p>Автор: {{ article.author.username }}</p>
+        <p>{{ article.content | safe }}</p>
+      </div>
+    </div>
+
+    <div class="row justify-content-center">
+      <div class="col-12 col-md-8 col-lg-6">
+        <h3>Комментарии</h3>
+        {% for comment in comments %}
+          <div class="card mb-3">
+            <div class="card-body">
+              <p class="card-text">{{ comment.text }}</p>
+              <p class="card-text"><small class="text-muted">{{ comment.author.username }}</small></p>
+            </div>
+          </div>
+        {% endfor %}
+      </div>
+    </div>
+
+    <div class="row justify-content-center">
+      <div class="col-12 col-md-8 col-lg-6">
+        <h3>Оставьте комментарий</h3>
+        <form method="post">
+          {% csrf_token %}
+          <label for="id_text">Введите свой комментарий:</label>
+          {{ comment_form.text }}
+          <br>
+          <button type="submit" class="btn btn-primary my-3">Отправить</button>
+      </form>
+      
+      </div>
+    </div>
+  </div>
+{% endblock %}

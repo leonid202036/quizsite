@@ -1,0 +1,18 @@
+{% extends "quiz/base.html" %}
+
+{% block content %}
+<div class="d-flex flex-column justify-content-center align-items-center" style="height: 80vh;">
+  <h2>Тестирование по авиационной безопасности!</h2>
+  <div class="container my-4">
+    <h5 class="text-center" >
+      На нашем сайте вы найдете статьи, которые охватывают широкий спектр тем, связанных с авиационной безопасностью. Эти статьи содержат актуальную информацию, которая поможет вам лучше понять принципы и практики авиационной безопасности.
+  </h5>
+  <br>
+    <h5 class="text-center" >
+        Также вы можете проверить свои знания с помощью наших интерактивных тестов. Эти тесты разработаны с учетом различных уровней сложности, так что вы сможете найти подходящий для себя независимо от вашего текущего уровня знаний.
+    </h5>
+</div>
+<img src="https://freepngimg.com/thumb/aircraft/166979-aircraft-express-free-download-png-hq.png" alt="Airplane" style="max-width: 300px; width: 100%;">
+    <a href="{% url 'quiz:test_list' %}" class="btn btn-primary mt-4">Перейти в раздел с тестами</a>
+</div>
+{% endblock %}

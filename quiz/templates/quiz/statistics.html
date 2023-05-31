@@ -1,0 +1,17 @@
+{% extends "quiz/base.html" %}
+
+{% block content %}
+<h2 class="my-4">Моя статистика</h2>
+{% for attempt in attempts %}
+<div class="card mb-3">
+    <div class="card-body">
+        <h3 class="card-title">{{ attempt.test.title }}</h3>
+        <p class="card-text">Верные ответы: {{ attempt.correct_answers }}</p>
+        <p class="card-text">Неверные ответы: {{ attempt.incorrect_answers }}</p>
+        <a href="{% url 'quiz:test_result' pk=attempt.pk %}" class="btn btn-primary">Посмотреть детали</a>
+    </div>
+</div>
+{% empty %}
+<p>Вы не прошли ни единого теста.</p>
+{% endfor %}
+{% endblock %}
