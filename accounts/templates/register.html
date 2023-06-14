@@ -5,30 +5,30 @@
     <div class="row justify-content-center">
       <div class="col-md-6">
         <div class="card">
-          <div class="card-header">Register</div>
+          <div class="card-header">Регистрация</div>
           <div class="card-body">
             <form method="post">
               {% csrf_token %}
               <div class="form-group">
-                <label for="id_username">Username:</label>
+                <label for="id_username">Логин:</label>
                 <input type="text" name="username" class="form-control" required id="id_username">
               </div>
               <div class="form-group">
-                <label for="id_email">Email:</label>
+                <label for="id_email">Почта:</label>
                 <input type="email" name="email" class="form-control" required id="id_email">
               </div>
               <div class="form-group">
-                <label for="id_password1">Password:</label>
+                <label for="id_password1">Пароль:</label>
                 <input type="password" name="password1" class="form-control" required id="id_password1">
               </div>
               <div class="form-group">
-                <label for="id_password2">Confirm Password:</label>
+                <label for="id_password2">Подтвердите пароль:</label>
                 <input type="password" name="password2" class="form-control" required id="id_password2">
               </div>
               {% if form.errors %}
-                <div class="alert alert-danger" role="alert">Your custom error message</div>
+                <div class="alert alert-danger" role="alert">Регистрация прошла безуспешно. Пароль должен содержать 8+ символов.</div>
               {% endif %}
-              <button type="submit" class="btn btn-primary">Register</button>
+              <button type="submit" class="btn btn-primary">Создать аккаунт</button>
             </form>
           </div>
         </div>

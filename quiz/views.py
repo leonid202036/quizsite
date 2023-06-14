@@ -3,7 +3,7 @@ from django.shortcuts import get_object_or_404, render
 from django.contrib.auth.decorators import login_required
 from .models import Test, UserTestAttempt, Answer
 
-# ...
+
 @login_required
 def test_detail(request, pk):
     test = get_object_or_404(Test, pk=pk)
